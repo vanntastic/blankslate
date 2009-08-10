@@ -9,7 +9,7 @@ blank slates here](http://37signals.com/svn/posts/90-design-decisions-backpack-p
 Example
 =======
 
-Here's how you might've written your view code before blank slate:
+Here's how you might've written your view code before blankslate:
 
       if @users.blank?
         <p>There are no users</p>
