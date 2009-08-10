@@ -3,20 +3,26 @@ module Blankslate
    # a method for only outputting a data when a condition is true
    # useful for inserting blank slates without conditionals
    # EX: instead of doing the following
-   # if @users.blank?
-   #     <p>There are no users</p>
-   # else
-   #     <p>There will be users here</p>
-   # end
+   # 
+   #    if @users.blank?
+   #        <p>There are no users</p>
+   #    else
+   #        <p>There will be users here</p>
+   #    end
+   # 
    # YOU CAN DO THIS :
-   # output_data_unless @users.blank? do
-   #   <p>There will be users here</p>    
-   # end
-   # you can also set it to output nothing by passing :output => :none :
-   # output_data_unless @users.blank?, :output => :none do
-   # -- your output here
-   # end
-   # isn't that more easier to read?
+   # 
+   #    output_data_unless @users.blank? do
+   #      <p>There will be users here</p>    
+   #    end
+   # 
+   # You can also set it to output nothing by passing :output => :none :
+   # 
+   #    output_data_unless @users.blank?, :output => :none do
+   #      <p>There will be users here</p>
+   #    end
+   # 
+   # Isn't that more easier to read?
    
    # Customize the [default] output for the blank_slate by creating a partial at : 
    # 
