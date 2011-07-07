@@ -41,7 +41,7 @@ module Blankslate
      options[:message] ||= "There are no records found..."
      
      if options[:partial].nil?
-       blank_slate_root = File.join(RAILS_ROOT, "app", "views", "blank_slates")
+       blank_slate_root = File.join(Rails.root.to_s, "app", "views", "blank_slates")
        blank_slate_path = File.join(blank_slate_root, params[:controller], 
                           "_#{params[:action]}.erb")
        partial_path = File.join("blank_slates", params[:controller], params[:action])
@@ -58,7 +58,12 @@ module Blankslate
      v_pre_2_1 = "concat(blank_slate, block.binding)"
      v_after_2_1 = "concat(blank_slate)"
      
-     output = RAILS_GEM_VERSION.to_f > 2.1 ? v_after_2_1 : v_pre_2_1
+     if defined?(RAILS_GEM_VERSION)
+       output = RAILS_GEM_VERSION.to_f > 2.1 ? v_after_2_1 : v_pre_2_1
+     else
+       output = v_after_2_1
+     end
+
      conditions ? (eval(output) unless options[:output] == :none) : yield
    end
   
